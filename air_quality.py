@@ -24,13 +24,12 @@ pm25 = PM25_UART(uart, reset_pin)
 print("Found PM2.5 sensor, reading data...")
 
 #CSV STUFF:
-#f = open("Lab4Data.csv","w", newline='')
+f = open("Lab4Data.csv","w", newline='')
 
-#meta_data = ["Time", ]
-#writer = csv.writer(f)
-#writer.writerow(meta_data)
-#writer.writerow(data) #loop this line to add data to file
-#f.close()
+meta_data = ["Time", "pm10_standard", "pm25_standard", "pm100_standard"]
+writer = csv.writer(f)
+writer.writerow(meta_data)
+
 
 
 for i in range(1,10):
@@ -40,11 +39,13 @@ for i in range(1,10):
     
     try:
         aqdata = pm25.read()
-        print(aqdata)
+        #print(aqdata)
     except RuntimeError:
         print("Unable to read from sensor, retrying...")
         continue
-
+    
+    writer.writerow(aqdata["pm10 standard"], aqdata["pm25 standard"], aqdata["pm100 standard"]) #loop this line to add data to file
+    
     print()
     print("Concentration Units (standard)")
     print("---------------------------------------")
@@ -67,5 +68,5 @@ for i in range(1,10):
     print("Particles > 10 um / 0.1L air:", aqdata["particles 100um"])
     print("---------------------------------------")
 
-    
-    
+      
+f.close()
