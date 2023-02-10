@@ -44,7 +44,8 @@ for i in range(1,10):
         print("Unable to read from sensor, retrying...")
         continue
     
-    writer.writerow(aqdata["pm10 standard"], aqdata["pm25 standard"], aqdata["pm100 standard"]) #loop this line to add data to file
+    writer.writerow([timeCurrent, aqdata["pm10 standard"], aqdata["pm25 standard"], aqdata["pm100 standard"]]) 
+    #loop this line to add data to file
     
     print()
     print("Concentration Units (standard)")
