@@ -25,7 +25,7 @@ meta_data = ["Time", "pm10_standard", "pm25_standard", "pm100_standard"]
 writer = csv.writer(f)
 writer.writerow(meta_data)
 
-for i in range(1,10):
+for i in range(0,10):
     time.sleep(1)
     timeCurrent = time.time()
     print(timeCurrent)
