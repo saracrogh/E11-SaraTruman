@@ -30,5 +30,6 @@ while itime < (start_time+run_time):
     value = random.random()
     print(itime,value)
     time.sleep(1)
+f.close()
 
 
