@@ -12,7 +12,6 @@ itime= start_time
 run_time= int(sys.argv[1])
 file_name = 'data.csv'
 
-
 print(file_name)
 file=open(file_name, "w", newline='')
 
