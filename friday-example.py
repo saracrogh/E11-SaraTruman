@@ -48,12 +48,12 @@ while itime < (start_time+run_time):
     value = random.random()
     print(itime,value)
     time.sleep(1)
-    try:
-        aqdata = pm25.read()
-        print(aqdata)
-    except RuntimeError:
-        print("Unable to read from sensor, retrying...")
-        continue
+  #  try:
+    aqdata = pm25.read()
+ #       print(aqdata)
+  #  except RuntimeError:
+   #     print("Unable to read from sensor, retrying...")
+    #    continue
     writer.writerow([itime, aqdata["pm10 standard"], aqdata["pm25 standard"], aqdata["pm100 standard"],(bme680.temperature + temperature_offset),bme680.gas,bme680.relative_humidity,bme680.pressure,bme680.altitude]) 
 
 f.close()
