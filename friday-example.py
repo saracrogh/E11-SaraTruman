@@ -50,7 +50,7 @@ while itime < (start_time+run_time):
     time.sleep(1)
     try:
         aqdata = pm25.read()
-        #print(aqdata)
+        print(aqdata)
     except RuntimeError:
         print("Unable to read from sensor, retrying...")
         continue
