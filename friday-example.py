@@ -44,25 +44,13 @@ print("Found PM2.5 sensor, reading data...")
 
 
 while itime < (start_time+run_time):
+    time.sleep(1)
     itime = int (time.time())
     value = random.random()
     print(itime,value)
-    
-    time.sleep(1)
     timeCurrent = time.time()
     print(timeCurrent)
     
-    try:
-        aqdata = pm25.read()
-        print(aqdata)
-    except RuntimeError:
-        print("Unable to read from sensor, retrying...")
-        continue
-    
-    writer.writerow([timeCurrent, aqdata["pm10 standard"], aqdata["pm25 standard"], aqdata["pm100 standard"],]) 
-
-f.close()
-    time.sleep(1)
     try:
         aqdata = pm25.read()
         print(aqdata)
