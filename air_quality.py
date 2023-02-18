@@ -38,7 +38,7 @@ for i in range(0,10):
     
     try:
         aqdata = pm25.read()
-        #print(aqdata)
+        print(aqdata)
     except RuntimeError:
         print("Unable to read from sensor, retrying...")
         continue
