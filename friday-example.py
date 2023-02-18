@@ -13,7 +13,6 @@ import adafruit_bme680
 print (sys.argv)
 start_time = int(time.time())
 itime= start_time
-
 run_time= int(sys.argv[1])
 file_name = 'data.csv'
 
