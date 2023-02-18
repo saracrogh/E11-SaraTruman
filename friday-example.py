@@ -3,7 +3,12 @@ import time
 import random
 import sys
 import csv
-
+import board
+import busio
+import adafruit_pm25
+from digitalio import DigitalInOut, Direction, Pull
+from adafruit_pm25.i2c import PM25_I2C
+import adafruit_bme680
 
 print (sys.argv)
 start_time = int(time.time())
@@ -14,15 +19,6 @@ file_name = 'data.csv'
 
 print(file_name)
 file=open(file_name, "w", newline='')
-
-import time
-import board
-import busio
-import adafruit_pm25
-import csv
-from digitalio import DigitalInOut, Direction, Pull
-from adafruit_pm25.i2c import PM25_I2C
-import adafruit_bme680
 
 reset_pin = None
 
