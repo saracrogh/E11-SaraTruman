@@ -13,13 +13,10 @@ import csv
 print (sys.argv)
 start_time = int(time.time())
 itime= start_time
-<<<<<<< HEAD
 
 run_time= int(sys.argv[0])
 file_name = 'data.csv'
-=======
 run_time= int(sys.argv[1])
->>>>>>> dbe828f56f981f8794cee52108abc4015dab0d93
 
 file_name = 'data.csv'
 if(len (sys.argv)>2):
@@ -27,22 +24,55 @@ if(len (sys.argv)>2):
 
 print(file_name)
 file=open(file_name, "w", newline='')
-<<<<<<< HEAD
 
-wrtier = csv.writer(file)
-meta_data= ["Time", "Data"]
-writer.write:row(meta_data)
-=======
-writer = csv.writer(file)
-meta_data = ["Time", "Data"]
-writer.write
->>>>>>> dbe828f56f981f8794cee52108abc4015dab0d93
+import time
+import board
+import busio
+import adafruit_pm25
+import csv
+from digitalio import DigitalInOut, Direction, Pull
+from adafruit_pm25.i2c import PM25_I2C
+import adafruit_bme680
 
-while itime < (start_time+run_time):
-    itime= int(time.time())
-    value = random.random()
-    print(itime,value)
+reset_pin = None
+
+# For use with Raspberry Pi/Linux:
+import serial
+uart = serial.Serial("/dev/ttyS0", baudrate=9600, timeout=0.25)
+
+# Connect to a PM2.5 sensor over UART
+from adafruit_pm25.uart import PM25_UART
+pm25 = PM25_UART(uart, reset_pin)
+
+i2c = board.I2C()
+bme680 = adafruit_bme680.Adafruit_BME680_I2C(i2c, debug=False)
+bme680.sea_level_pressure = 1013.25
+temperature_offset = -5
+timeElapsed = 0
+
+
+print("Found PM2.5 sensor, reading data...")
+
+f = open("Lab4Data.csv","w", newline='')
+meta_data = ["Time", "pm10_standard", "pm25_standard", "pm100_standard", "Temperature", "Gas", "Humidity","Pressure","Altitude"]
+writer = csv.writer(f)
+writer.writerow(meta_data)
+
+for i in range(0,10):
     time.sleep(1)
+    timeCurrent = time.time()
+    print(timeCurrent)
+    
+    try:
+        aqdata = pm25.read()
+        #print(aqdata)
+    except RuntimeError:
+        print("Unable to read from sensor, retrying...")
+        continue
+    
+    writer.writerow([timeCurrent, aqdata["pm10 standard"], aqdata["pm25 standard"], aqdata["pm100 standard"],(bme680.temperature + temperature_offset),bme680.gas,bme680.relative_humidity,bme680.pressure,bme680.altitude]) 
+
 f.close()
+
 
 
