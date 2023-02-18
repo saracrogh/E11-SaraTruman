@@ -30,9 +30,9 @@ from adafruit_pm25.uart import PM25_UART
 pm25 = PM25_UART(uart, reset_pin)
 
 i2c = board.I2C()
-bme680 = adafruit_bme680.Adafruit_BME680_I2C(i2c, debug=False)
-bme680.sea_level_pressure = 1013.25
-temperature_offset = -5
+#bme680 = adafruit_bme680.Adafruit_BME680_I2C(i2c, debug=False)
+#bme680.sea_level_pressure = 1013.25
+#temperature_offset = -5
 timeElapsed = 0
 
 
@@ -50,10 +50,6 @@ while itime < (start_time+run_time):
     time.sleep(1)
   #  try:
     aqdata = pm25.read()
- #       print(aqdata)
-  #  except RuntimeError:
-   #     print("Unable to read from sensor, retrying...")
-    #    continue
     writer.writerow([itime, aqdata["pm10 standard"], aqdata["pm25 standard"], aqdata["pm100 standard"],(bme680.temperature + temperature_offset),bme680.gas,bme680.relative_humidity,bme680.pressure,bme680.altitude]) 
 
 f.close()
