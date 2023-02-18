@@ -53,21 +53,19 @@ meta_data = ["Time", "pm10_standard", "pm25_standard", "pm100_standard", "Temper
 writer = csv.writer(f)
 writer.writerow(meta_data)
 
-for i in range(0,10):
+while itime < (start_time+run_time):
+    itime = int (time.time())
+    value = random.random()
+    print(itime,value)
     time.sleep(1)
-    timeCurrent = time.time()
-    print(timeCurrent)
-    
+
+    writer.writerow([timeCurrent, aqdata["pm10 standard"], aqdata["pm25 standard"], aqdata["pm100 standard"],(bme680.temperature + temperature_offset),bme680.gas,bme680.relative_humidity,bme680.pressure,bme680.altitude]) 
     try:
         aqdata = pm25.read()
         #print(aqdata)
     except RuntimeError:
         print("Unable to read from sensor, retrying...")
         continue
-    
-    writer.writerow([timeCurrent, aqdata["pm10 standard"], aqdata["pm25 standard"], aqdata["pm100 standard"],(bme680.temperature + temperature_offset),bme680.gas,bme680.relative_humidity,bme680.pressure,bme680.altitude]) 
-
 f.close()
-
 
 
