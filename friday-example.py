@@ -9,13 +9,13 @@ print (sys.argv)
 start_time = int(time.time())
 itime= start_time
 
-run_time= int(sys.argv[0])
+run_time= int(sys.argv[1])
 file_name = 'data.csv'
 run_time= int(sys.argv[1])
 
-file_name = 'data.csv'
-if(len (sys.argv)>2):
-    file_name = sys.argv[2]
+#file_name = 'data.csv'
+#if(len (sys.argv)>2):
+ #   file_name = sys.argv[2]
 
 print(file_name)
 file=open(file_name, "w", newline='')
