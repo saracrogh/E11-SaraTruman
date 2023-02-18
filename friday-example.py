@@ -23,7 +23,7 @@ reset_pin = None
 
 # For use with Raspberry Pi/Linux:
 import serial
-uart = serial.Serial("/dev/ttyS0", baudrate=9600, timeout=0.25)
+uart = serial.Serial("/dev/ttyS0", baudrate=9600, timeout=0.95)
 
 # Connect to a PM2.5 sensor over UART
 from adafruit_pm25.uart import PM25_UART
@@ -48,9 +48,9 @@ while itime < (start_time+run_time):
     value = random.random()
     print(itime,value)
     time.sleep(1)
-  #  try:
     aqdata = pm25.read()
     writer.writerow([itime, aqdata["pm10 standard"], aqdata["pm25 standard"], aqdata["pm100 standard"],(bme680.temperature + temperature_offset),bme680.gas,bme680.relative_humidity,bme680.pressure,bme680.altitude]) 
+    
 
 f.close()
 
