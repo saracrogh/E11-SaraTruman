@@ -16,7 +16,7 @@ start_time = int(time.time())
 itime= start_time
 run_time= int(sys.argv[1])
 
-file_name = 'data.csv'
+file_name = 'outside_data.csv'
 if(len(sys.argv)>2):
     file_name=sys.argv[2]
     
