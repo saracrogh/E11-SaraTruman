@@ -10,10 +10,10 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(channel, GPIO.IN)
 
 i = 0
-while i < 14:
+while i < 5:
  i = i + 1
  start_time = int(time.time())
- end_time = start_time + 5
+ end_time = start_time + 60
  counts = 0
 
  while time.time() <= end_time:
