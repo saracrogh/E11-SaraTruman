@@ -2,7 +2,8 @@
  
 import RPi.GPIO as GPIO
 import datetime
- 
+channel = 2
+
 def my_callback(channel):
     if GPIO.input(channel) == GPIO.HIGH:
         print('\n▼  at ' + str(datetime.datetime.now()))
