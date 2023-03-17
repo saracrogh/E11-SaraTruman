@@ -5,8 +5,9 @@ import datetime
 import time
 channel = 2
 start_time = int(time.time())
-i = 3
+i = 0
 
-while i < 2:
+while i < 1000:
  GPIO.wait_for_edge(channel, GPIO.FALLING)
  print(int(time.time())
+ i = i + 1
