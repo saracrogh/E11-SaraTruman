@@ -18,7 +18,7 @@ while i < 10:
 
  while time.time() <= end_time:
   GPIO.wait_for_edge(channel, GPIO.FALLING, timeout = 5)
-  print(str(datetime.datetime.now()))
+  # print(str(datetime.datetime.now()))
   counts = counts + 1
   time.sleep(0.001)
  
