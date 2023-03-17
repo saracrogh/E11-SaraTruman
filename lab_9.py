@@ -3,6 +3,7 @@
 import RPi.GPIO as GPIO
 import datetime
 import time
+start_time = int(time.time())
 
 def my_callback(channel):
     if GPIO.input(channel) == GPIO.HIGH:
@@ -10,13 +11,14 @@ def my_callback(channel):
     else:
         print('\n ▲ at ' + str(datetime.datetime.now()))
           
-GPIO.setmode(GPIO.BCM)
-GPIO.setup(6, GPIO.IN)
+
 #PIO.add_event_detect(6, GPIO.BOTH, callback=my_callback)
 
 
 channel = 2
-start_time = int(time.time())
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(channel, GPIO.IN)
+
 i = 0
 
 while i < 10:
