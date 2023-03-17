@@ -9,5 +9,5 @@ i = 0
 
 while i < 10:
  GPIO.wait_for_edge(channel, GPIO.FALLING)
- print(int(time.time())
+ print(int(time.time()))
  i = i + 1
