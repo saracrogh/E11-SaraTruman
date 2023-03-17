@@ -21,7 +21,7 @@ while i < 14:
   if False == GPIO.input(channel):
    counts = counts + 1
    # print(str(datetime.datetime.now()))
-  time.sleep(0.01)
+  time.sleep(0.001)
  
  print(counts)
  
