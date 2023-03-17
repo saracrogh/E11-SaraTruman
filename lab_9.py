@@ -15,4 +15,4 @@ while i < 10:
  GPIO.wait_for_edge(channel, GPIO.FALLING)
  print(str(datetime.datetime.now()))
  i = i + 1
- sleep(0.01)
+ time.sleep(0.01)
