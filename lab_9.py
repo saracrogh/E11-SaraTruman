@@ -11,7 +11,7 @@ def my_callback(channel):
         print('\n ▲ at ' + str(datetime.datetime.now()))
           
 GPIO.setmode(GPIO.BCM)
-PIO.setup(6, GPIO.IN)
+GPIO.setup(6, GPIO.IN)
 #PIO.add_event_detect(6, GPIO.BOTH, callback=my_callback)
 
 
