@@ -7,7 +7,7 @@ channel = 2
 start_time = int(time.time())
 i = 0
 
-while i < 1000:
+while i < 10:
  GPIO.wait_for_edge(channel, GPIO.FALLING)
  print(int(time.time())
  i = i + 1
