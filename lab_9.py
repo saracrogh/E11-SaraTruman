@@ -6,10 +6,13 @@ import time
 
 
 channel = 2
-GPIO.setmode(GPIO.BCM)
-GPIO.setup(channel, GPIO.IN)
 tests = 4
 time_per_test = 5
+
+
+
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(channel, GPIO.IN)
 
 i = 0
 while i < tests:
