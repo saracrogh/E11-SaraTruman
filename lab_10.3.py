@@ -24,9 +24,8 @@ GPIO.add_event_detect(channel, GPIO.FALLING, callback=my_callback, bouncetime=10
 GPIO.setwarnings(False)
  
 
-
 f = open(output_file_name,"w")
-meta_data = ["CPM","Time Tags"]
+meta_data = ["CPM","Time"]
 
 f = open(output_file_name,"w",newline='')
 writer = csv.writer(f)
@@ -39,7 +38,7 @@ list_of_times = []
 originalStart = int(time.time())
 
 
-while iTime < (startTime + run_time):
+while iTime <= (startTime + int(run_time)):
  time.sleep(count_time)
  print("Counts in the last minute: " + str(counts))
  data = [str(counts),str(time.time())]
