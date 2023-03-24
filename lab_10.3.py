@@ -5,6 +5,7 @@ import sys
 import csv
 
 channel = 6
+counts = 0
 
 if len(sys.argv) > 1:
  run_time = int(sys.argv[1])
@@ -44,5 +45,6 @@ while iTime <= (startTime + int(run_time)):
  data = [str(counts),str(time.time())]
  writer.writerow(data)
  iTime = int(time.time())
+ counts = 0
  
 f.close()
