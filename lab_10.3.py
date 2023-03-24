@@ -16,6 +16,7 @@ if len(sys.argv) > 1:
    output_file_name = output_file_name + ".csv"
  
  def my_callback(channel):
+  global counts
   print('\falling at ' + str(datetime.datetime.now()))
   counts = counts + 1
   
