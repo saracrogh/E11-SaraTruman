@@ -4,7 +4,7 @@ import RPi.GPIO as GPIO
 import datetime
 import time
 
-channel = 17
+channel = 6
 
 def my_callback(channel):
  print('\n▼  at ' + str(datetime.datetime.now()))
