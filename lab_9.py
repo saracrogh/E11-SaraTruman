@@ -5,7 +5,7 @@ import datetime
 import time
 
 
-channel = 2
+channel = 6
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(channel, GPIO.IN)
 
