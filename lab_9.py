@@ -8,12 +8,14 @@ import time
 channel = 2
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(channel, GPIO.IN)
+tests = 2
+time_per_test = 60
 
 i = 0
-while i < 5:
+while i < tests:
  i = i + 1
  start_time = int(time.time())
- end_time = start_time + 60
+ end_time = start_time + time_per_test
  counts = 0
 
  while time.time() <= end_time:
