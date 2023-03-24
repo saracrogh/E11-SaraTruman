@@ -5,7 +5,7 @@ import datetime
 import time
 
 
-channel = 2
+channel = 17
 tests = 4
 time_per_test = 5
 
