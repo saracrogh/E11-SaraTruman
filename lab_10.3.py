@@ -17,7 +17,7 @@ if len(sys.argv) > 1:
  
  def my_callback(channel):
   print('\falling at ' + str(datetime.datetime.now()))
-  int(counts) = int(counts) + 1
+  counts = counts + 1
   
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(channel, GPIO.IN, pull_up_down=GPIO.PUD_UP)
@@ -34,14 +34,13 @@ writer.writerow(meta_data)
 
 startTime=int(time.time())
 iTime=startTime
-counts = 0
 list_of_times = []
 originalStart = int(time.time())
 
 
-while iTime <= (startTime + int(run_time)):
+while iTime <= (startTime + run_time):
  time.sleep(count_time)
- print("Counts in the last minute: " + str(counts))
+ print("Counts in the last count_time: " + str(counts))
  data = [str(counts),str(time.time())]
  writer.writerow(data)
  iTime = int(time.time())
