@@ -7,7 +7,7 @@ import time
 
 channel = 17
 tests = 4
-time_per_test = 5
+time_per_test = 30
 
 
 
@@ -25,7 +25,7 @@ while i < tests:
   GPIO.wait_for_edge(channel, GPIO.FALLING, timeout = 5)
   if False == GPIO.input(channel):
    counts = counts + 1
-   # print(str(datetime.datetime.now()))
+   print(str(datetime.datetime.now()))
   time.sleep(0.005)
  
  print(counts)
