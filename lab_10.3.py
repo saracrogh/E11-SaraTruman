@@ -7,9 +7,9 @@ import csv
 channel = 6
 
 if len(sys.argv) > 1:
- run_time = sys.argv[1]
+ run_time = int(sys.argv[1])
  if len(sys.argv) > 2:
-  count_time = sys.argv[2]
+  count_time = int(sys.argv[2])
   if len(sys.argv) > 3:
    output_file_name = sys.argv[3]
    output_file_name = output_file_name + ".csv"
