@@ -17,7 +17,7 @@ if len(sys.argv) > 1:
  
  def my_callback(channel):
   print('\falling at ' + str(datetime.datetime.now()))
-  counts = counts + 1
+  int(counts) = int(counts) + 1
   
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(channel, GPIO.IN, pull_up_down=GPIO.PUD_UP)
