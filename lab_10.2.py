@@ -7,11 +7,11 @@ import time
 channel = 6
 
 def my_callback(channel):
- print('\n▼  at ' + str(datetime.datetime.now()))
+ print('\rising at ' + str(datetime.datetime.now()))
   
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(channel, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-GPIO.add_event_detect(channel, GPIO.FALLING, callback=my_callback, bouncetime=1)
+GPIO.add_event_detect(channel, GPIO.RISING, callback=my_callback, bouncetime=1)
  
 while True:
  print("Running while loop")
